@@ -1,0 +1,82 @@
+/* @import './base.css'; */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-weight: normal;
+  /* height: 1920px;
+  width: 1080px; */
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+#app {
+  /* max-width: 1080px; */
+  /* margin: 0 auto;
+  padding: 2rem; */
+  font-weight: normal;
+  /* background-color: #90D0FE;
+  height: 1920px;
+  width: 1080px; */
+}
+
+/*=========================================================
+Salesforce Fonts
+=========================================================*/
+/* @font-face {
+    font-family: 'Avant-Garde';
+    src: url('fonts/AvantGardeForSalesforce-Demi.otf');
+    src: url('fonts/AvantGardeForSalesforce-Demi.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+} */
+
+/* @font-face {
+    font-family: 'Lato-Regular.';
+    src: url('../fonts/Lato-Regular.woff.eot');
+    src: url('../fonts/Lato-Regular.woff.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/Lato-Regular.woff.woff') format('woff'),
+        url('../fonts/Lato-Regular.woff.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+} */
+
+/*=========================================================
+
+AvantGardeForSalesforce-Demi
+
+=========================================================*/
+@font-face {
+    font-family: 'AvantGardeForSalesforce-Demi';
+    src: url('fonts/AvantGardeForSalesforce-Demi.otf');
+    src: url('fonts/AvantGardeForSalesforceW05-Dm.woff') format('woff'),
+         url('fonts/AvantGardeForSalesforce-Demi.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+/* @media (hover: hover) {
+  a:hover {
+    background-color: hsla(160, 100%, 37%, 0.2);
+  }
+}
+
+@media (min-width: 1024px) {
+  body {
+    display: flex;
+    place-items: center;
+  }
+
+  #app {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 0 2rem;
+  }
+} */
