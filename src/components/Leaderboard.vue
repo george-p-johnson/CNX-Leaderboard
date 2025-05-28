@@ -17,6 +17,7 @@
   background-color: #90D0FE;
   height: 1920px;
   width: 1080px;
+  background-image: url('/img/bg.png');
 }
 
 h2 {
