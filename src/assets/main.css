@@ -17,13 +17,28 @@ body {
   overflow: hidden;
   overflow-y: hidden;
   overflow-x: hidden;
+
+    transition:
+    color 0.5s,
+    background-color 0.5s;
+  line-height: 1.6;
+  font-family:
+    Inter,
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    Roboto,
+    Oxygen,
+    Ubuntu,
+    Cantarell,
+    'Fira Sans',
+    'Droid Sans',
+    'Helvetica Neue',
+    sans-serif;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
-
-
-#app {
-  font-weight: normal;
-}
-
 
 
 
@@ -62,9 +77,9 @@ AvantGardeForSalesforce-Demi
 =========================================================*/
 @font-face {
     font-family: 'AvantGardeForSalesforce-Demi';
-    src: url('fonts/AvantGardeForSalesforce-Demi.otf');
-    src: url('fonts/AvantGardeForSalesforceW05-Dm.woff') format('woff'),
-         url('fonts/AvantGardeForSalesforce-Demi.ttf') format('truetype');
+    src: url('/fonts/AvantGardeForSalesforce-Demi.otf');
+    src: url('/fonts/AvantGardeForSalesforceW05-Dm.woff') format('woff'),
+         url('/fonts/AvantGardeForSalesforce-Demi.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
