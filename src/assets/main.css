@@ -7,24 +7,32 @@
   margin: 0;
   padding: 0;
   font-weight: normal;
-  /* height: 1920px;
-  width: 1080px; */
 }
 
 body {
+  /* width: 100vw;
+  height: 100vh; */
   margin: 0;
   padding: 0;
+  overflow: hidden;
+  overflow-y: hidden;
+  overflow-x: hidden;
 }
 
+
 #app {
-  /* max-width: 1080px; */
-  /* margin: 0 auto;
-  padding: 2rem; */
   font-weight: normal;
-  /* background-color: #90D0FE;
-  height: 1920px;
-  width: 1080px; */
 }
+
+
+
+
+
+
+
+
+
+
 
 /*=========================================================
 Salesforce Fonts

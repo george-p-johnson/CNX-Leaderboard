@@ -1,6 +1,14 @@
 <template>
   <div id="container">
     <h2>Shoot your Shot</h2>
+    
+    <!-- Donations Display -->
+    <div class="donations-display">
+      <h3>Total Donations Raised</h3>
+      <div class="donation-amount">${{ formattedDonation }}</div>
+    </div>
+    
+    <!-- Leaderboard -->
     <ul>
       <li v-for="(entry, index) in topEntries" :key="index">
         {{ index + 1 }}. {{ entry.name }} - {{ entry.score }}
@@ -8,7 +16,6 @@
     </ul>
   </div>
 </template>
-
 
 <style scoped>
 #container {
@@ -24,6 +31,29 @@ h2 {
   text-align: center;
   margin: 50px auto;
   font-size: 72px;
+}
+
+.donations-display {
+  text-align: center;
+  margin: 30px auto 50px auto;
+  background-color: rgba(11, 92, 171, 0.9);
+  border-radius: 20px;
+  padding: 20px;
+  width: 600px;
+}
+
+.donations-display h3 {
+  color: white;
+  font-size: 36px;
+  margin: 0 0 15px 0;
+  font-family: "AvantGardeForSalesforce-Demi", sans-serif;
+}
+
+.donation-amount {
+  color: #90D0FE;
+  font-size: 48px;
+  font-weight: bold;
+  font-family: "AvantGardeForSalesforce-Demi", sans-serif;
 }
 
 ul {
@@ -51,23 +81,40 @@ li {
 import { onMounted, onUnmounted, computed } from 'vue';
 import { store } from '../store.js';
 
-const API_URL = 'https://script.google.com/macros/s/AKfycbxsKJvqveL30rKows7CiECYAeyPY2jeC28JLSW7PupuK8gX-wYtqmyEKgNhAmhOfB6P/exec';
+const LEADERBOARD_API_URL = 'https://script.google.com/macros/s/AKfycbxsKJvqveL30rKows7CiECYAeyPY2jeC28JLSW7PupuK8gX-wYtqmyEKgNhAmhOfB6P/exec';
+const DONATIONS_API_URL = 'https://script.google.com/macros/s/AKfycbxu6UrZQo5_w4_PE6AlGrthJruSzlyhJ-8FHLNFBmw30Q4xC5cgzTr92ZYzocqVFZKRcw/exec';
 
 let intervalId = null;
 
-// Fetch data from Google Sheet
+// Fetch leaderboard data from Google Sheet
 const fetchEntries = async () => {
   try {
-    const response = await fetch(API_URL);
+    const response = await fetch(LEADERBOARD_API_URL);
     store.entries = await response.json();
   } catch (err) {
-    console.error(err);
+    console.error('Error fetching entries:', err);
   }
 };
 
+// Fetch donations data
+const fetchDonations = async () => {
+  try {
+    const response = await fetch(DONATIONS_API_URL);
+    const data = await response.json();
+    store.donation = data.donation || 0;
+  } catch (err) {
+    console.error('Error fetching donations:', err);
+  }
+};
+
+// Combined fetch function
+const fetchAll = async () => {
+  await Promise.all([fetchEntries(), fetchDonations()]);
+};
+
 onMounted(() => {
-  fetchEntries(); // initial fetch
-  intervalId = setInterval(fetchEntries, 5000); // fetch every 5 seconds
+  fetchAll(); // initial fetch
+  intervalId = setInterval(fetchAll, 5000); // fetch every 5 seconds
 });
 
 onUnmounted(() => {
@@ -78,6 +125,14 @@ onUnmounted(() => {
 const topEntries = computed(() => {
   return [...store.entries].sort((a, b) => b.score - a.score).slice(0, 5);
 });
+
+// Format donation amount with commas and 2 decimal places
+const formattedDonation = computed(() => {
+  return (store.donation || 0).toLocaleString('en-US', {
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2
+  });
+});
 </script>
 
 
@@ -86,4 +141,8 @@ const topEntries = computed(() => {
 
 
 
-<!-- const API_URL = 'https://script.google.com/macros/s/AKfycbxsKJvqveL30rKows7CiECYAeyPY2jeC28JLSW7PupuK8gX-wYtqmyEKgNhAmhOfB6P/exec'; -->
+
+
+<!-- Leaderboard - https://script.google.com/macros/s/AKfycbxsKJvqveL30rKows7CiECYAeyPY2jeC28JLSW7PupuK8gX-wYtqmyEKgNhAmhOfB6P/exec -->
+
+<!-- Donations - https://script.google.com/macros/s/AKfycbxu6UrZQo5_w4_PE6AlGrthJruSzlyhJ-8FHLNFBmw30Q4xC5cgzTr92ZYzocqVFZKRcw/exec -->
