@@ -1,19 +1,19 @@
 <template>
   <div id="container">
     <h2>Admin Panel</h2>
-
+<!-- 
     <div id="googleSheets">
         <a href="https://docs.google.com/spreadsheets/d/11VimFdYmwUYX8OVGfhK3vvXtCdvsIj8IWKop1oxaehk/edit?gid=0#gid=0">Link to Leaderboard Google Sheets</a>
         <br>
         <br>
         <a href="https://docs.google.com/spreadsheets/d/1VS8lLYorekpgm6mPdKACbDcn9r_KoguTuuwqDISnFM8/edit?gid=0#gid=0">Link to Dontations Google Sheets</a>
-    </div>
+    </div> -->
 
     <!-- Leaderboard Entries Section -->
     <div class="section">
       <h3>Leaderboard Entries</h3>
       <div id="header">
-        <div class="heading">Name</div>
+        <div>Name</div>
         <div>Score</div>
       </div>
 
@@ -76,16 +76,12 @@ h3 {
 }
 
 #header {
-  display: flex;
-  gap: 1rem;
-  font-weight: bold;
-  margin-bottom: 0.5rem;
-  left: 92px;
-  position: relative;
-}
-
-.heading {
-  width: 150px;
+    display: flex;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    left: 50px;
+    position: relative;
+    gap: 6rem;
 }
 
 #data {
