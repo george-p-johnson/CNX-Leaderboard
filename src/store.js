@@ -1,10 +1,3 @@
-// import { reactive } from 'vue';
-
-// export const store = reactive({
-//   entries: [],
-//   donation: 0
-// });
-
 import { reactive } from 'vue';
 
 export const store = reactive({

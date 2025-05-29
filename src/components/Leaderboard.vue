@@ -14,6 +14,8 @@
         {{ index + 1 }}. {{ entry.name }} - {{ entry.score }}
       </li>
     </ul>
+
+    <!-- <div id="overlay"></div> -->
   </div>
 </template>
 
@@ -27,30 +29,45 @@
   background-image: url('/img/bg.png');
 }
 
+/* #container::before {
+    content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+} */
+
 h2 {
   text-align: center;
-  margin: 50px auto;
-  font-size: 72px;
+  margin: 80px auto;
+  font-size: 100px;
+  font-family: "AvantGardeForSalesforce-Demi", sans-serif;
+  color: #ffffff;
 }
 
 .donations-display {
   text-align: center;
-  margin: 30px auto 50px auto;
-  background-color: rgba(11, 92, 171, 0.9);
+  margin: 100px auto 200px auto;
+  /* background-color: rgba(13, 157, 218, 0.9); */
   border-radius: 20px;
-  padding: 20px;
+  padding: 60px;
   width: 600px;
+  background-color: #ffffff;
+  color: #00A1E0;
+
 }
 
 .donations-display h3 {
-  color: white;
+  color: #00A1E0;
   font-size: 36px;
   margin: 0 0 15px 0;
   font-family: "AvantGardeForSalesforce-Demi", sans-serif;
 }
 
 .donation-amount {
-  color: #90D0FE;
+  color: #00A1E0;
   font-size: 48px;
   font-weight: bold;
   font-family: "AvantGardeForSalesforce-Demi", sans-serif;
@@ -64,15 +81,15 @@ ul {
 li {
   height: 100px;
   width: 500px;
-  background-color: #0B5CAB;
+  background-color: #ffffff;
   border-radius: 50px;
-  color: #ffffff;
+  color: #00A1E0;
   text-align: left;
   text-indent: 125px;
   line-height: 100px; 
   font-size: 32px;
   font-family: "AvantGardeForSalesforce-Demi", sans-serif;
-  margin: 25px auto; 
+  margin: 35px auto; 
   display: block; 
 }
 </style>
