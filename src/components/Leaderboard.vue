@@ -1,21 +1,47 @@
 <template>
   <div id="container">
-    <h2>Shoot your Shot</h2>
+    <!-- <h2>Shoot your Shot</h2> -->
+     <img id="logo" src="/img/logo.png">
     
-    <!-- Donations Display -->
-    <div class="donations-display">
-      <h3>Total Donations Raised</h3>
-      <div class="donation-amount">${{ formattedDonation }}</div>
-    </div>
+   
     
     <!-- Leaderboard -->
-    <ul>
+    <!-- <ul>
       <li v-for="(entry, index) in topEntries" :key="index">
         {{ index + 1 }}. {{ entry.name }} - {{ entry.score }}
       </li>
+    </ul> -->
+
+    <!-- <ul>
+        <li v-for="(entry, index) in topEntries" :key="index" class="leaderboard-item">
+            <img :src="getRankImage(index)" alt="Rank" class="rank-image" />
+            <div class="name">{{ entry.name }}</div>
+            <div class="score">{{ entry.score }}</div>
+        </li>
+    </ul> -->
+
+    <ul>
+        <li v-for="(entry, index) in topEntries" :key="index" class="leaderboard-item">
+            <div class="rank-circle">
+                <img :src="getRankImage(index)" alt="rank" />
+                <!-- <span class="rank-number">{{ index + 1 }}</span> -->
+            </div>
+            <div class="info">
+                <span class="name">{{ entry.name }}</span>
+                <span class="score">{{ entry.score }} pts</span>
+            </div>
+        </li>
     </ul>
 
-    <!-- <div id="overlay"></div> -->
+     <!-- Donations Display -->
+    <div id="dontations-container">
+        <h3>Total Donations Raised</h3>
+        <div class="donations-display">
+            
+            <div class="donation-amount">${{ formattedDonation }}</div>
+        </div>
+    </div>
+
   </div>
 </template>
 
@@ -29,48 +55,9 @@
   background-image: url('/img/bg.png');
 }
 
-/* #container::before {
-    content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.5);
-} */
-
-h2 {
-  text-align: center;
-  margin: 80px auto;
-  font-size: 100px;
-  font-family: "AvantGardeForSalesforce-Demi", sans-serif;
-  color: #ffffff;
-}
-
-.donations-display {
-  text-align: center;
-  margin: 100px auto 200px auto;
-  /* background-color: rgba(13, 157, 218, 0.9); */
-  border-radius: 20px;
-  padding: 60px;
-  width: 600px;
-  background-color: #ffffff;
-  color: #00A1E0;
-
-}
-
-.donations-display h3 {
-  color: #00A1E0;
-  font-size: 36px;
-  margin: 0 0 15px 0;
-  font-family: "AvantGardeForSalesforce-Demi", sans-serif;
-}
-
-.donation-amount {
-  color: #00A1E0;
-  font-size: 48px;
-  font-weight: bold;
-  font-family: "AvantGardeForSalesforce-Demi", sans-serif;
+#logo {
+    margin: 100px auto 150px auto;
+    display: table;
 }
 
 ul {
@@ -78,19 +65,91 @@ ul {
   padding: 0;
 }
 
-li {
-  height: 100px;
-  width: 500px;
+h3 {
+    color: #ffffff;
+    font-size: 36px;
+    margin: 100px auto 10px auto;
+    font-family: "AvantGardeForSalesforce-Demi", sans-serif;
+    display: table;
+}
+
+.leaderboard-item {
+    position: relative;
+    margin-bottom: 1rem;
+    height: 170px;
+    width: 720px;
+    background-color: #ffffff;
+    border-radius: 25px;
+    color: #000000;
+    text-align: left;
+    text-indent: 125px;
+    line-height: 100px; 
+    font-size: 80px;
+    font-family: "AvantGardeForSalesforce-Demi", sans-serif;
+    margin: 35px auto; 
+    display: block; 
+}
+
+.rank-circle {
+  position: relative;
+  width: 100px;
+}
+
+.rank-circle img {
+    position: absolute;
+    left: 0;
+    top: 15px;
+    padding-left: 20px;
+}
+
+.rank-number {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.info {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.name {
+    margin-left: 20px;
+    font-size: 80px;
+}
+
+.score {
+    position: absolute;
+    right: 0;
+    padding-right: 40px;
+    font-size: 30px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+#dontations-container{
+    position: relative;
+    top: 25px;
+}
+
+.donations-display {
+  text-align: center;
+  margin: 0px auto 200px auto;
+  border-radius: 100px;
+  width: 850px;
   background-color: #ffffff;
-  border-radius: 50px;
-  color: #00A1E0;
-  text-align: left;
-  text-indent: 125px;
-  line-height: 100px; 
-  font-size: 32px;
-  font-family: "AvantGardeForSalesforce-Demi", sans-serif;
-  margin: 35px auto; 
-  display: block; 
+}
+
+.donation-amount {
+    color: #000000;
+    font-size: 100px;
+    font-weight: bold;
+    font-family: "AvantGardeForSalesforce-Demi", sans-serif;
 }
 </style>
 
@@ -150,6 +209,11 @@ const formattedDonation = computed(() => {
     maximumFractionDigits: 2
   });
 });
+
+
+function getRankImage(index) {
+  return `/img/rank${index + 1}.png`;
+}
 </script>
 
 
