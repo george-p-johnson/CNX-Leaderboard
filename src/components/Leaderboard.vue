@@ -1,30 +1,11 @@
 <template>
   <div id="container">
-    <!-- <h2>Shoot your Shot</h2> -->
      <img id="logo" src="/img/logo.png">
-    
-   
-    
-    <!-- Leaderboard -->
-    <!-- <ul>
-      <li v-for="(entry, index) in topEntries" :key="index">
-        {{ index + 1 }}. {{ entry.name }} - {{ entry.score }}
-      </li>
-    </ul> -->
-
-    <!-- <ul>
-        <li v-for="(entry, index) in topEntries" :key="index" class="leaderboard-item">
-            <img :src="getRankImage(index)" alt="Rank" class="rank-image" />
-            <div class="name">{{ entry.name }}</div>
-            <div class="score">{{ entry.score }}</div>
-        </li>
-    </ul> -->
 
     <ul>
         <li v-for="(entry, index) in topEntries" :key="index" class="leaderboard-item">
             <div class="rank-circle">
                 <img :src="getRankImage(index)" alt="rank" />
-                <!-- <span class="rank-number">{{ index + 1 }}</span> -->
             </div>
             <div class="info">
                 <span class="name">{{ entry.name }}</span>
