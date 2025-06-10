@@ -38,6 +38,12 @@
   background-image: url('/img/bg.png');
 }
 
+#logo {
+    margin: 90px auto 50px auto;
+    display: table;
+    width: 400px;
+}
+
 #header {
   color: #ffffff;
   margin: 0 auto;
