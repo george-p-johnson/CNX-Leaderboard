@@ -1,6 +1,8 @@
 <template>
   <div id="container">
      <img id="logo" src="/img/logo.png">
+      <h2 id="header">Leaderboard</h2>
+
 
     <ul>
         <li v-for="(entry, index) in topEntries" :key="index" class="leaderboard-item">
@@ -36,9 +38,12 @@
   background-image: url('/img/bg.png');
 }
 
-#logo {
-    margin: 100px auto 150px auto;
-    display: table;
+#header {
+  color: #ffffff;
+  margin: 0 auto;
+  display: table;
+  font-family: "AvantGardeForSalesforce-Demi", sans-serif;
+  font-size: 115px;
 }
 
 ul {
